@@ -1,0 +1,6 @@
+.widgets__module {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
+  margin: 8px;
+}

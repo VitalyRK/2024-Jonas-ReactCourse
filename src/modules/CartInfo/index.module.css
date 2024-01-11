@@ -1,0 +1,13 @@
+.cart__box {
+  margin: 50px auto;
+  width: 300px;
+  border: 3px solid slateblue;
+}
+
+.cart__img {
+  width: 100%;
+}
+
+.cart__about {
+  margin: 30px;
+}

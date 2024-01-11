@@ -1,0 +1,16 @@
+.widget__box {
+  font-weight: 700;
+  display: inline-flex;
+  padding: 2px 12px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: default;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.widget__emoji {
+  font-size: 1.4rem;
+}
