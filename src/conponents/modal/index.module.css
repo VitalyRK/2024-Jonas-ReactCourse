@@ -1,0 +1,41 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 600px;
+  height: 500px;
+  background-color: #ffe0e0;
+  border-radius: 20px;
+}
+
+.text {
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+.numbers,
+.action__btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.numbers__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: rgba(194, 194, 194, 0.8);
+}
+
+.active {
+  background-color: #00bcd4;
+  font-weight: 700;
+  color: white;
+  font-size: 18px;
+}
