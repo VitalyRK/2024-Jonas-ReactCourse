@@ -1,0 +1,16 @@
+.footer {}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.img__github {
+  transition: all .3s ease;
+}
+
+.img__github:hover {
+  filter: grayscale(100%);
+}

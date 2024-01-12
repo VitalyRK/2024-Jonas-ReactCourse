@@ -1,4 +1,5 @@
 import CartInfo from './modules/CartInfo/CartInfo';
+import Footer from './modules/Footer/Footer';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         name="Vitaly Shishou"
         about="Hi there! I am a frontend developer living in Belarus."
       />
+      <Footer />
     </>
   );
 }
