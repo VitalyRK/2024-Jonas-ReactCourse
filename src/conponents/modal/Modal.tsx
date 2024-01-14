@@ -4,7 +4,7 @@ import styles from './index.module.css';
 interface IProps {
   open: boolean;
   openElement: number;
-  setOpenElement: (value: number) => void;
+  setOpenElement: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Modal = ({ open, openElement, setOpenElement }: IProps) => {
@@ -16,11 +16,11 @@ const Modal = ({ open, openElement, setOpenElement }: IProps) => {
   ];
 
   const prev = () => {
-    if (openElement > 1) setOpenElement(openElement - 1);
+    if (openElement > 1) setOpenElement((v: number) => v - 1);
   };
 
   const next = () => {
-    if (openElement < 3) setOpenElement(openElement + 1);
+    if (openElement < 3) setOpenElement((v: number) => v + 1);
   };
 
   return (

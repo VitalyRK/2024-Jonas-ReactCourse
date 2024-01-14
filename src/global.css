@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  --mainColor: #00bcd4;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +14,7 @@ body {
   height: 100vh;
   font-family: 'Roboto', sans-serif;
   background-color: #f7f7f7;
-  border-bottom: 10px solid #00bcd4;
+  border-bottom: 10px solid var(--mainColor);
 }
 
 #root {

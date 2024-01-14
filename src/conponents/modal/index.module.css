@@ -34,7 +34,7 @@
 }
 
 .active {
-  background-color: #00bcd4;
+  background-color: var(--mainColor);
   font-weight: 700;
   color: white;
   font-size: 18px;
