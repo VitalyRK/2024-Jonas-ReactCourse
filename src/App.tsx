@@ -1,7 +1,12 @@
+import About from './components/About/About';
+
+import './global.css';
+
 function App() {
   return (
     <>
-      <h1>My Personal Page</h1>
+      <h1>My Educational Project</h1>
+      <About />
     </>
   );
 }
