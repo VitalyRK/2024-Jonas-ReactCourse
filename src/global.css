@@ -39,11 +39,16 @@ button:hover {
   filter: grayscale(90%);
 }
 
+h2 {
+  font-size: 40px;
+  text-shadow: 1px 1px 1px #7e7e7e;
+  color: rgb(202, 202, 202);
+}
+
 h3 {
-  color: rgb(43, 43, 43);
+  margin: 20px;
   font-size: 30px;
   font-weight: normal;
-  text-shadow: 1px 1px 1px #9c9c9c;
 }
 
 .clear__btn {

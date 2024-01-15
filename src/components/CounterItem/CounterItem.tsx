@@ -2,18 +2,21 @@ import styles from './index.module.css';
 
 interface IProps {
   name: string;
+  value: number;
   decrease: () => void;
   increase: () => void;
 }
 
-const Counter = ({ name, decrease, increase }: IProps) => {
+const CounterItem = ({ name, value, decrease, increase }: IProps) => {
   return (
     <div className={styles.counter}>
-      <button onClick={decrease}>&#45;</button>
-      <div>{name}</div>
+      <button onClick={decrease}>-</button>
+      <div>
+        {name}: {value}
+      </div>
       <button onClick={increase}>&#43;</button>
     </div>
   );
 };
 
-export default Counter;
+export default CounterItem;
