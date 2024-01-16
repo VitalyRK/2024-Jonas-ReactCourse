@@ -1,0 +1,39 @@
+.item {
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-weight: 500;
+  color: rgb(223, 223, 223);
+}
+
+.checkbox {
+  width: 25px;
+  height: 19px;
+  border: none;
+  outline: none;
+}
+
+.checkbox:checked {
+  animation: pop .3s ease;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+
+.button {
+  background-color: inherit;
+}

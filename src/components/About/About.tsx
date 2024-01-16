@@ -32,7 +32,7 @@ const About = () => {
           decoding="async"
           alt="Udemi icon"
         />
-        <ToolTip text="Master modern React from beginner to advanced! Context API, React Query, Redux Toolkit, Tailwind, advanced patterns. Author: Jonas Schmedtmann">
+        <ToolTip text="Context API, React Query, Redux Toolkit, Tailwind, advanced patterns. Author: Jonas Schmedtmann">
           <span>The Ultimate React Course 2024</span>
         </ToolTip>
       </a>

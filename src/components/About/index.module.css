@@ -1,9 +1,10 @@
 .about {
   width: 100%;
-  margin: 20px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  align-self: self-end;
+  font-size: 16px;
 }
 
 .about__link {

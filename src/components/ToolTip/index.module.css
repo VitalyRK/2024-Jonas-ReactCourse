@@ -5,17 +5,16 @@
 
 .tooltip {
   position: absolute;
-  bottom: 0;
+  bottom: calc(100%);
   width: 180px;
   padding: 4px 12px;
-  margin-left: calc(105%);
+  margin-left: calc(25%);
   justify-content: center;
-  color: #FFFFFF;
-  background-color: var(--mainColor);
-  opacity: 0.4;
+  color: #ffffff;
+  background-color: rgb(180, 180, 180);
+  opacity: 0.9;
   border-radius: 12px;
   text-align: center;
   white-space: pre-line;
-  font-weight: 700;
   pointer-events: none;
 }
