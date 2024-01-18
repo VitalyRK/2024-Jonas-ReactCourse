@@ -1,11 +1,12 @@
 import About from './components/About/About';
+import Accordion from './components/Accordion/Accordion';
 
 import './global.css';
 
 function App() {
   return (
     <>
-      <h1>My Educational Project</h1>
+      <Accordion />
       <About />
     </>
   );
