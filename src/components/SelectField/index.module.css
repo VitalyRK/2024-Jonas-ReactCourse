@@ -1,0 +1,8 @@
+.selectField {
+  display: flex;
+  gap: 20px;
+}
+
+.selectField>select {
+  font-size: 18px;
+}

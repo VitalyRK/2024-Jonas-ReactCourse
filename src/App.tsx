@@ -1,11 +1,13 @@
 import About from './components/About/About';
+import TipCalculator from './modules/TipCalculator/TipCalculator';
 
 import './global.css';
 
 function App() {
   return (
     <>
-      <h1>My Educational Project</h1>
+      <h1>Tip Calculator</h1>
+      <TipCalculator />
       <About />
     </>
   );

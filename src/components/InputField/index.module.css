@@ -1,0 +1,11 @@
+.inputField {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.inputField>input {
+  text-align: center;
+  width: 100px;
+  font-size: 20px;
+}

@@ -1,0 +1,13 @@
+.btnReset {
+  width: fit-content;
+  height: 38px;
+  padding: 3px 10px;
+  font-size: 22px;
+  border-bottom: 2px solid var(--mainColor);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.btnReset:active {
+  transform: scale(0.9);
+}
