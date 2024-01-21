@@ -69,6 +69,7 @@ const FriendsList = () => {
           setIsOpenDataFriend={setIsOpenDataFriend}
           dataFriends={dataFriends}
           removeFriend={removeFriend}
+          isOpenDataFriend={isOpenDataFriend}
         />
         {isOpenForm && (
           <AddFriendInfoLineForm

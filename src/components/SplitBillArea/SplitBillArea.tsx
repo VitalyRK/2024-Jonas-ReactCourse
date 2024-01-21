@@ -37,7 +37,7 @@ const SplitBillArea = ({ data, data: { name }, close, changeData }: IProps) => {
     let newDebt;
     if (whoPay === 'you') newDebt = billValue - yourExpense + data.debt;
     else if (whoPay === 'he') newDebt = data.debt - yourExpense;
-    changeData({ ...data, debt: newDebt ? newDebt : data.debt });
+    changeData({ ...data, debt: newDebt !== undefined ? newDebt : data.debt });
     close(null);
   };
 
@@ -90,7 +90,13 @@ const SplitBillArea = ({ data, data: { name }, close, changeData }: IProps) => {
             required
             type="number"
             value={yourExpense !== null ? yourExpense : ''}
-            onChange={(e) => setYourExpense(Number(e.target.value))}
+            onChange={(e) =>
+              setYourExpense(
+                Number(e.target.value) > billValue
+                  ? yourExpense
+                  : Number(e.target.value)
+              )
+            }
             label="Enter value"
             variant="filled"
             fullWidth
@@ -105,7 +111,7 @@ const SplitBillArea = ({ data, data: { name }, close, changeData }: IProps) => {
             required
             disabled
             value={
-              billValue !== null && yourExpense !== null
+              billValue !== null && yourExpense !== null && billValue !== 0
                 ? billValue - yourExpense
                 : 0
             }
