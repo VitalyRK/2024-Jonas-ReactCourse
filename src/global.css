@@ -15,27 +15,24 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f7f7f7;
   border-bottom: 10px solid var(--mainColor);
+  text-align: center;
 }
 
-#root {
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.box {
+  margin: 10px auto;
+  width: 80%;
+  padding: 10px;
+  align-items: baseline;
+  font-size: 22px;
+  border-radius: 7px;
+  background-color: #ffffd7;
 }
 
 button {
   background-color: inherit;
   border: none;
   cursor: pointer;
-  transition: all .3s ease;
-}
-
-button:hover {
-  filter: grayscale(90%);
+  transition: all .2s ease;
 }
 
 h2 {
