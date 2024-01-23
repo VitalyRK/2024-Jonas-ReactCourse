@@ -1,7 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 :root {
-  --mainColor: #00bcd4;
+  --color-primary: #6741d9;
+  --color-primary-light: #7950f2;
+  --color-text: #dee2e6;
+  --color-text-dark: #adb5bd;
+  --color-background-100: #343a40;
+  --color-background-500: #2b3035;
+  --color-background-900: #212529;
+  --color-red: #fa5252;
+  --color-red-dark: #e03131;
 }
 
 * {
@@ -10,42 +16,15 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
-  height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f7f7f7;
-  border-bottom: 10px solid var(--mainColor);
-}
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-#root {
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-button {
-  background-color: inherit;
-  border: none;
-  cursor: pointer;
-  transition: all .3s ease;
-}
-
-button:hover {
-  filter: grayscale(90%);
-}
-
-h2 {
-  font-size: 40px;
-  text-shadow: 1px 1px 1px #7e7e7e;
-  color: rgb(202, 202, 202);
-}
-
-h3 {
-  margin: 20px;
-  font-size: 30px;
-  font-weight: normal;
+  color: var(--color-text);
+  background-color: var(--color-background-900);
+  padding: 2.4rem;
 }
