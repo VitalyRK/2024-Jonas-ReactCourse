@@ -11,6 +11,7 @@ interface IProps {
 
 const Star = ({ onRate, onHoverIn, onHoverOut, full, color, size }: IProps) => {
   const starStyle = {
+    padding: '4px',
     width: `${size}px`,
     height: `${size}px`,
     display: 'block',

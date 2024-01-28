@@ -1,11 +1,13 @@
-import { IWatchedMovies } from '@/helpers/types';
+import { IMovie } from '@/helpers/types';
 
 interface IProps {
-  dataWatched: IWatchedMovies;
+  dataWatched: IMovie;
+  onDeleteWatched: (id: string) => void;
 }
 
 const WatchedItem = ({
-  dataWatched: { Title, Poster, imdbRating, userRating, runtime },
+  dataWatched: { imdbID, Title, Poster, imdbRating, userRating, Runtime },
+  onDeleteWatched,
 }: IProps) => {
   return (
     <li>
@@ -20,10 +22,14 @@ const WatchedItem = ({
           <span>🌟</span>
           <span>{userRating}</span>
         </p>
+        cc
         <p>
           <span>⏳</span>
-          <span>{runtime} min</span>
+          <span>{Runtime} min</span>
         </p>
+        <button className="btn-delete" onClick={() => onDeleteWatched(imdbID)}>
+          X
+        </button>
       </div>
     </li>
   );

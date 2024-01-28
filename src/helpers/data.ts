@@ -1,4 +1,6 @@
-export const tempMovieData = [
+import { IDataMovies } from "./types";
+
+export const tempMovieData: IDataMovies[] = [
   {
     imdbID: 'tt1375666',
     Title: 'Inception',

@@ -11,8 +11,10 @@ const Box = ({ children }: IProps) => {
 
   return (
     <div className={styles.box}>
-      <ButtonToggle isOpen={isOpen} onClick={setIsOpen} />
-      {isOpen && children}
+      <div className={styles.content}>
+        <ButtonToggle isOpen={isOpen} onClick={setIsOpen} />
+        {isOpen && children}
+      </div>
     </div>
   );
 };

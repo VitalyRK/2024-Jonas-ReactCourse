@@ -1,20 +1,20 @@
 import { average } from '@/helpers/functions';
-import { IWatchedMovies } from '@/helpers/types';
+import { IMovie } from '@/helpers/types';
 
 import styles from '../index.module.css';
 
 interface IProps {
-  dataWatched: IWatchedMovies[];
+  dataWatched: IMovie[];
 }
 
 const Summary = ({ dataWatched }: IProps) => {
   const avgImdbRating = average(
-    dataWatched.map((movie) => Number(movie.imdbID))
+    dataWatched.map((movie) => Number(movie.imdbRating))
   );
   const avgUserRating = average(
     dataWatched.map((movie) => Number(movie.userRating))
   );
-  const avgRuntime = average(dataWatched.map((movie) => Number(movie.runtime)));
+  const avgRuntime = average(dataWatched.map((movie) => Number(movie.Runtime)));
 
   return (
     <div className={styles.summary}>
@@ -26,15 +26,15 @@ const Summary = ({ dataWatched }: IProps) => {
         </p>
         <p>
           <span>⭐️</span>
-          <span>{avgImdbRating}</span>
+          <span>{avgImdbRating.toFixed(2)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{avgUserRating}</span>
+          <span>{avgUserRating.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime.toFixed(0)} min</span>
         </p>
       </div>
     </div>

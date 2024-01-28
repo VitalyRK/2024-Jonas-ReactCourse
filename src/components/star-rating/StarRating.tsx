@@ -10,7 +10,6 @@ const containerStyle = {
 const starContainerStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '16px',
 };
 
 interface IProps {
@@ -19,6 +18,7 @@ interface IProps {
   color?: string;
   size?: number;
   defaultRating?: number;
+  onSetRating: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const StarRating = ({
@@ -27,6 +27,7 @@ const StarRating = ({
   size = 48,
   messages = [],
   defaultRating = 0,
+  onSetRating,
 }: IProps) => {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
@@ -40,6 +41,7 @@ const StarRating = ({
 
   function handleRating(rating: number) {
     setRating(rating);
+    onSetRating(rating);
   }
 
   return (

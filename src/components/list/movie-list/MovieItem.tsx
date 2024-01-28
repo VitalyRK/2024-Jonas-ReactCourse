@@ -2,12 +2,19 @@ import { IDataMovies } from '@/helpers/types';
 
 interface IProps {
   dataMovie: IDataMovies;
+  onSelected: (id: string) => void;
 }
 
-const MovieItem = ({ dataMovie: { Title, Year, Poster } }: IProps) => {
+const MovieItem = ({
+  dataMovie: { Title, Year, Poster, imdbID },
+  onSelected,
+}: IProps) => {
   return (
-    <li>
-      <img src={Poster} alt={`${Title} poster`} />
+    <li onClick={() => onSelected(imdbID)}>
+      <img
+        src={Poster !== 'N/A' ? Poster : './github.svg'}
+        alt={`${Title} poster`}
+      />
       <h3>{Title}</h3>
       <div>
         <p>

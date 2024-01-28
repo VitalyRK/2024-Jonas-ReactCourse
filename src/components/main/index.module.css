@@ -8,11 +8,18 @@
 
 .box {
   width: 42rem;
+  padding-right: 17px;
   max-width: 42rem;
   background-color: var(--color-background-500);
   border-radius: 0.9rem;
-  overflow: auto;
+  overflow-y: scroll;
   position: relative;
+}
+
+.content {
+  width: 100%;
+  padding-right: 17px;
+  /* Ширина полосы прокрутки */
 }
 
 .btn__toggle {
