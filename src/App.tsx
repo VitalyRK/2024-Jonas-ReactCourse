@@ -1,14 +1,16 @@
-import About from './components/About/About';
-
+import React from 'react';
+import Main from './components/main/Main';
 import './global.css';
 
-function App() {
-  return (
-    <>
-      <h1>My Educational Project</h1>
-      <About />
-    </>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <h1>Classy wheater</h1>
+        <Main />
+      </div>
+    );
+  }
 }
 
 export default App;

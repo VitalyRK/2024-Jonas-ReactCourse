@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
 
 :root {
   --mainColor: #00bcd4;
+  --color-black: #1f1f1f;
 }
 
 * {
@@ -11,41 +12,91 @@
 }
 
 body {
-  height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f7f7f7;
-  border-bottom: 10px solid var(--mainColor);
+  height: 100svh;
+  font-family: 'Croissant One', serif;
+  color: var(--color-black);
+  background-color: rgb(250, 188, 198);
+  text-align: center;
 }
 
 #root {
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 60px;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.container {
+  padding: 30px;
+  border: 3px solid var(--color-black);
+  border-radius: 5px;
 }
 
 button {
   background-color: inherit;
-  border: none;
+  padding: 3px 5px;
+  margin: 10px;
+  font-family: inherit;
+  border: 2px solid var(--color-black);
   cursor: pointer;
   transition: all .3s ease;
+  border-radius: 10px;
 }
 
 button:hover {
-  filter: grayscale(90%);
+  transform: translateY(1px);
+  background-color: #c086bb;
+  color: rgb(243, 243, 243);
 }
 
-h2 {
+h1 {
   font-size: 40px;
-  text-shadow: 1px 1px 1px #7e7e7e;
-  color: rgb(202, 202, 202);
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 3px 5px;
+  background-color: rgb(255, 214, 221);
+  font-family: inherit;
+  font-size: 18px;
+  text-align: center;
+  outline: none;
+  border: 1px solid var(--color-black);
+}
+
+input:focus {
+  outline: 2px solid #222;
 }
 
 h3 {
   margin: 20px;
   font-size: 30px;
   font-weight: normal;
+}
+
+.weather {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.day {
+  background-color: rgb(255, 214, 221);
+  padding: 1.6rem 0 2rem;
+  width: 12.8rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+}
+
+.day span {
+  font-size: 5.2rem;
+}
+
+.day.important {
+  background-color: #ecc5c0;
+  outline: 2px solid #222;
 }
