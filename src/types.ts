@@ -5,6 +5,7 @@ export interface IState {
   answer: null | number;
   points: number;
   highscore: number;
+  secondsRemaining: number;
 }
 
 export interface IQuestion {
@@ -22,6 +23,7 @@ export enum ActionKind {
   nextQuestion = 'nextQuestion',
   finish = 'finish',
   restart = 'restart',
+  tick = 'tick',
 }
 
 export enum StatusKind {

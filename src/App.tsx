@@ -7,9 +7,11 @@ import Loader from './components/Loader';
 import StartScreen from './components/StartScreen';
 import Question from './components/Question';
 import { IState, StatusKind, ActionKind, IQuestion } from './types';
-import NextButton from './components/NextButton';
 import Progress from './components/Progress';
 import FinishScreen from './components/FinishScreen';
+import Footer from './components/Footer';
+import NextButton from './components/NextButton';
+import Timer from './components/Timer';
 
 const initialState: IState = {
   questions: [],
@@ -18,7 +20,10 @@ const initialState: IState = {
   answer: null,
   points: 0,
   highscore: 0,
+  secondsRemaining: 0,
 };
+
+const SECS_PER_QUESTION = 30;
 
 export type Action =
   | { type: ActionKind.dataReceived; payload: IQuestion[] }
@@ -29,7 +34,8 @@ export type Action =
         | ActionKind.start
         | ActionKind.nextQuestion
         | ActionKind.finish
-        | ActionKind.restart;
+        | ActionKind.restart
+        | ActionKind.tick;
     };
 
 function reducer(state: IState, action: Action): IState {
@@ -43,7 +49,11 @@ function reducer(state: IState, action: Action): IState {
     case 'dataFailed':
       return { ...state, status: StatusKind.error };
     case 'start':
-      return { ...state, status: StatusKind.active };
+      return {
+        ...state,
+        status: StatusKind.active,
+        secondsRemaining: state.questions.length * SECS_PER_QUESTION,
+      };
     case 'newAnswer':
       const question = state.questions[state.index];
       return {
@@ -70,14 +80,25 @@ function reducer(state: IState, action: Action): IState {
         status: StatusKind.ready,
         highscore: state.highscore,
       };
+    case 'tick':
+      return {
+        ...state,
+        secondsRemaining: state.secondsRemaining - 1,
+        status:
+          state.secondsRemaining === 0 ? StatusKind.finished : state.status,
+        highscore:
+          state.points > state.highscore ? state.points : state.highscore,
+      };
     default:
       throw new Error('Incorrect action type');
   }
 }
 
 function App() {
-  const [{ questions, status, index, answer, points, highscore }, dispatch] =
-    useReducer(reducer, initialState);
+  const [
+    { questions, status, index, answer, points, highscore, secondsRemaining },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
   const maxPossiblePoints = questions.reduce(
@@ -120,12 +141,15 @@ function App() {
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton
-              dispatch={dispatch}
-              answer={answer}
-              index={index}
-              numQuestions={numQuestions}
-            />
+            <Footer>
+              <Timer dispatch={dispatch} secondsRemaining={secondsRemaining} />
+              <NextButton
+                dispatch={dispatch}
+                answer={answer}
+                index={index}
+                numQuestions={numQuestions}
+              />
+            </Footer>
           </>
         )}
         {status === StatusKind.finished && (
