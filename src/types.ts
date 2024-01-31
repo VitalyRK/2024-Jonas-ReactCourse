@@ -4,6 +4,7 @@ export interface IState {
   index: number;
   answer: null | number;
   points: number;
+  highscore: number;
 }
 
 export interface IQuestion {
@@ -19,6 +20,8 @@ export enum ActionKind {
   start = 'start',
   newAnswer = 'newAnswer',
   nextQuestion = 'nextQuestion',
+  finish = 'finish',
+  restart = 'restart',
 }
 
 export enum StatusKind {

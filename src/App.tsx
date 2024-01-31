@@ -8,6 +8,8 @@ import StartScreen from './components/StartScreen';
 import Question from './components/Question';
 import { IState, StatusKind, ActionKind, IQuestion } from './types';
 import NextButton from './components/NextButton';
+import Progress from './components/Progress';
+import FinishScreen from './components/FinishScreen';
 
 const initialState: IState = {
   questions: [],
@@ -15,13 +17,19 @@ const initialState: IState = {
   index: 0,
   answer: null,
   points: 0,
+  highscore: 0,
 };
 
 export type Action =
   | { type: ActionKind.dataReceived; payload: IQuestion[] }
   | { type: ActionKind.newAnswer; payload: number }
   | {
-      type: ActionKind.dataFailed | ActionKind.start | ActionKind.nextQuestion;
+      type:
+        | ActionKind.dataFailed
+        | ActionKind.start
+        | ActionKind.nextQuestion
+        | ActionKind.finish
+        | ActionKind.restart;
     };
 
 function reducer(state: IState, action: Action): IState {
@@ -48,18 +56,34 @@ function reducer(state: IState, action: Action): IState {
       };
     case 'nextQuestion':
       return { ...state, index: state.index + 1, answer: null };
+    case 'finish':
+      return {
+        ...state,
+        status: StatusKind.finished,
+        highscore:
+          state.points > state.highscore ? state.points : state.highscore,
+      };
+    case 'restart':
+      return {
+        ...initialState,
+        questions: state.questions,
+        status: StatusKind.ready,
+        highscore: state.highscore,
+      };
     default:
       throw new Error('Incorrect action type');
   }
 }
 
 function App() {
-  const [{ questions, status, index, answer }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ questions, status, index, answer, points, highscore }, dispatch] =
+    useReducer(reducer, initialState);
 
   const numQuestions = questions.length;
+  const maxPossiblePoints = questions.reduce(
+    (prev, cur) => prev + cur.points,
+    0
+  );
 
   useEffect(() => {
     (async () => {
@@ -84,16 +108,35 @@ function App() {
         )}
         {status === StatusKind.active && (
           <>
+            <Progress
+              ind={index}
+              numQuestions={numQuestions}
+              points={points}
+              maxPossiblePoints={maxPossiblePoints}
+              answer={answer}
+            />
             <Question
               questions={questions[index]}
               dispatch={dispatch}
               answer={answer}
             />
-            <NextButton dispatch={dispatch} answer={answer} />
+            <NextButton
+              dispatch={dispatch}
+              answer={answer}
+              index={index}
+              numQuestions={numQuestions}
+            />
           </>
         )}
+        {status === StatusKind.finished && (
+          <FinishScreen
+            points={points}
+            maxPossiblePoints={maxPossiblePoints}
+            highscore={highscore}
+            dispatch={dispatch}
+          />
+        )}
       </Main>
-      {/* {questions.length > 0 && <p>{questions[0].question}</p>} */}
     </>
   );
 }
