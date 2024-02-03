@@ -1,12 +1,9 @@
-import { useContext } from 'react';
 import FormAddPost from './FormAddPost';
 import Posts from './Posts';
-import { PostContext } from '@/context/Context';
+import { usePosts } from '@/context/Context';
 
 const Main = () => {
-  const context = useContext(PostContext);
-  if (context === null) return;
-  const { posts, onAddPost } = context;
+  const { posts, onAddPost } = usePosts();
 
   return (
     <main>
