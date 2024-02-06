@@ -2,16 +2,21 @@ import styles from './index.module.css';
 
 interface IProps {
   children: string;
-  type: string;
-  onClick: (e: React.MouseEvent<HTMLElement>) => void;
+  typeStyle: string;
+  submit?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Button = ({ children, type, onClick }: IProps) => {
+const Button = ({ children, typeStyle, submit, onClick }: IProps) => {
   return (
     <>
-      <div className={`${styles.btn} ${styles[type]}`} onClick={onClick}>
+      <button
+        type={submit ? 'submit' : 'button'}
+        className={`${styles.btn} ${styles[typeStyle]}`}
+        onClick={onClick}
+      >
         {children}
-      </div>
+      </button>
     </>
   );
 };

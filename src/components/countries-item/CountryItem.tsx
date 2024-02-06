@@ -1,3 +1,5 @@
+import { flagemojiToPNG } from '@/helpers';
+
 import styles from './index.module.css';
 
 interface IProps {
@@ -12,7 +14,7 @@ export interface IContry {
 const CountryItem = ({ country }: IProps) => {
   return (
     <li className={styles.countryItem}>
-      <span>{country.emoji}</span>
+      <span>{flagemojiToPNG(country.emoji)}</span>
       <span>{country.country}</span>
     </li>
   );

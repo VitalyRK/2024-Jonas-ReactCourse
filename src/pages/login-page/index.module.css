@@ -24,3 +24,8 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.login p {
+  font-size: 15px;
+  color: red;
+}

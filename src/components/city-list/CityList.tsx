@@ -1,16 +1,13 @@
-import { ICities } from '@/App';
+import { useCities } from '@/context/CitiesContext';
 
 import CityItem from '../city-item/CityItem';
 import Message from '../message/Message';
 import Spinner from '../spinner/Spinner';
 import styles from './index.module.css';
 
-interface IState {
-  cities: ICities[] | null;
-  isLoading: boolean;
-}
+const CityList = () => {
+  const { isLoading, cities } = useCities();
 
-const CityList = ({ cities, isLoading }: IState) => {
   if (isLoading) return <Spinner />;
 
   if (cities === null || !cities.length)

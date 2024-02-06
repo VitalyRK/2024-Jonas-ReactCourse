@@ -1,16 +1,19 @@
-import styles from "./User.module.css";
+import { useNavigate } from 'react-router-dom';
 
-const FAKE_USER = {
-  name: "Jack",
-  email: "jack@example.com",
-  password: "qwerty",
-  avatar: "https://i.pravatar.cc/100?u=zz",
-};
+import { useAuth } from '@/context/FakeAuthContext';
 
-function User() {
-  const user = FAKE_USER;
+import styles from './User.module.css';
 
-  function handleClick() {}
+const User = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleClick() {
+    logout();
+    navigate('/');
+  }
+
+  if (user === null) return <></>;
 
   return (
     <div className={styles.user}>
@@ -19,10 +22,9 @@ function User() {
       <button onClick={handleClick}>Logout</button>
     </div>
   );
-}
+};
 
 export default User;
-
 /*
 CHALLENGE
 

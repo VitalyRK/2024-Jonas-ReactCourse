@@ -1,17 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+import Button from '@/components/button/Button';
 import PageNav from '@/components/page-nav/PageNav';
+import { useAuth } from '@/context/FakeAuthContext';
 
 import styles from './index.module.css';
 
 const Login = () => {
+  const { login, isAuthenticated, wrongLogin } = useAuth();
   const [email, setEmail] = useState('jack@example.com');
   const [password, setPassword] = useState('qwerty');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (email && password) {
+      login(email, password);
+    }
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) navigate('/app', { replace: true });
+  }, [isAuthenticated, navigate]);
 
   return (
     <main className={styles.login}>
       <PageNav />
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
@@ -32,8 +48,16 @@ const Login = () => {
           />
         </div>
 
+        {wrongLogin && (
+          <div>
+            <p>Wrong email or password! Try again.</p>
+          </div>
+        )}
+
         <div>
-          <button>Login</button>
+          <Button typeStyle="primary" submit={true}>
+            Login
+          </Button>
         </div>
       </form>
     </main>

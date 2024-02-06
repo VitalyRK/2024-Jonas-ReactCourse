@@ -1,16 +1,14 @@
-import { ICities } from '@/App';
+import { useCities } from '@/context/CitiesContext';
+import { ICities } from '@/types';
 
 import CountryItem, { IContry } from '../countries-item/CountryItem';
 import Message from '../message/Message';
 import Spinner from '../spinner/Spinner';
 import styles from './index.module.css';
 
-interface IState {
-  cities: ICities[] | null;
-  isLoading: boolean;
-}
+const CountriesList = () => {
+  const { isLoading, cities } = useCities();
 
-const CountriesList = ({ cities, isLoading }: IState) => {
   if (isLoading) return <Spinner />;
 
   if (cities === null || !cities.length)
