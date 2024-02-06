@@ -1,23 +1,12 @@
-interface IProps {
-  ind: number;
-  numQuestions: number;
-  points: number;
-  maxPossiblePoints: number;
-  answer: number | null;
-}
+import { useQuizz } from '@/context/QuizzContext';
 
-const Progress = ({
-  ind,
-  numQuestions,
-  points,
-  maxPossiblePoints,
-  answer,
-}: IProps) => {
+const Progress = () => {
+  const { numQuestions, points, maxPossiblePoints, answer, index } = useQuizz();
   return (
     <header className="progress">
-      <progress max={numQuestions} value={ind + Number(answer !== null)} />
+      <progress max={numQuestions} value={index + Number(answer !== null)} />
       <p className="">
-        Question <b>{ind + 1}</b> / {numQuestions}
+        Question <b>{index + 1}</b> / {numQuestions}
       </p>
 
       <p>

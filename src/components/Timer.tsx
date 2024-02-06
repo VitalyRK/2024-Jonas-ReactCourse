@@ -1,15 +1,12 @@
-import { Action } from '@/App';
+import { useQuizz } from '@/context/QuizzContext';
 import { ActionKind } from '@/types';
 import { useEffect } from 'react';
 
-interface IProps {
-  dispatch: React.Dispatch<Action>;
-  secondsRemaining: number;
-}
-
-const Timer = ({ dispatch, secondsRemaining }: IProps) => {
+const Timer = () => {
+  const { secondsRemaining, dispatch } = useQuizz();
   const mins = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
+
   useEffect(() => {
     const id = setInterval(() => {
       dispatch({ type: ActionKind.tick });

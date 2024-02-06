@@ -1,14 +1,9 @@
-import { Action } from '@/App';
+import { useQuizz } from '@/context/QuizzContext';
 import { ActionKind } from '@/types';
 
-interface IProps {
-  dispatch: React.Dispatch<Action>;
-  answer: number | null;
-  numQuestions: number;
-  index: number;
-}
+const NextButton = () => {
+  const { answer, numQuestions, index, dispatch } = useQuizz();
 
-const NextButton = ({ dispatch, answer, numQuestions, index }: IProps) => {
   if (answer === null) return null;
 
   if (index < numQuestions - 1) {

@@ -1,19 +1,8 @@
-import { Action } from '@/App';
+import { useQuizz } from '@/context/QuizzContext';
 import { ActionKind } from '@/types';
 
-interface IProps {
-  points: number;
-  maxPossiblePoints: number;
-  highscore: number;
-  dispatch: React.Dispatch<Action>;
-}
-
-const FinishScreen = ({
-  points,
-  maxPossiblePoints,
-  highscore,
-  dispatch,
-}: IProps) => {
+const FinishScreen = () => {
+  const { points, maxPossiblePoints, highscore, dispatch } = useQuizz();
   const percentage = (points / maxPossiblePoints) * 100;
 
   let emoji = '🙀';

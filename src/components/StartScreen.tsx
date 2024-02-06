@@ -1,12 +1,9 @@
-import { Action } from '@/App';
+import { useQuizz } from '@/context/QuizzContext';
 import { ActionKind } from '@/types';
 
-interface IProps {
-  numQuestions: number;
-  dispatch: React.Dispatch<Action>;
-}
+function StartScreen() {
+  const { numQuestions, dispatch } = useQuizz();
 
-function StartScreen({ numQuestions, dispatch }: IProps) {
   return (
     <div className="start">
       <h2>Welcome to The React Quiz!</h2>

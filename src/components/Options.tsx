@@ -1,14 +1,14 @@
-import { Action } from '@/App';
+import { useQuizz } from '@/context/QuizzContext';
 import { ActionKind } from '@/types';
 
 interface IProps {
   correct: number;
   options: string[];
-  dispatch: React.Dispatch<Action>;
-  answer: number | null;
 }
 
-const Options = ({ options, dispatch, answer, correct }: IProps) => {
+const Options = ({ options, correct }: IProps) => {
+  const { answer, dispatch } = useQuizz();
+
   const hasAnswered = answer !== null;
 
   return (
