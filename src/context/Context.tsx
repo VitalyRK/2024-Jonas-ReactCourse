@@ -1,5 +1,5 @@
 import { IPost, createRandomPost } from '@/helpers';
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 
 interface IContext {
   posts: IPost[];
@@ -35,19 +35,17 @@ export const PostProvider = ({ children }: { children: ReactNode }) => {
     setPosts([]);
   }
 
-  return (
-    <PostContext.Provider
-      value={{
-        posts: searchedPosts,
-        onAddPost: handleAddPost,
-        onClearPosts: handleClearPosts,
-        searchQuery,
-        setSearchQuery,
-      }}
-    >
-      {children}
-    </PostContext.Provider>
-  );
+  const value = useMemo(() => {
+    return {
+      posts: searchedPosts,
+      onAddPost: handleAddPost,
+      onClearPosts: handleClearPosts,
+      searchQuery,
+      setSearchQuery,
+    };
+  }, [searchedPosts, searchQuery]);
+
+  return <PostContext.Provider value={value}>{children}</PostContext.Provider>;
 };
 
 export function usePosts() {
