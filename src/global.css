@@ -1,76 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-:root {
-  --mainColor: #00bcd4;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f7f7f7;
-  font-size: 20px;
-  border-bottom: 10px solid var(--mainColor);
-  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 40px;
 }
 
-#root {
-  height: 100svh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+input,
+select {
+  margin: 0 8px;
+  padding: 4px 8px;
+  font: inherit;
 }
 
 button {
-  background-color: inherit;
-  border: none;
-  font-size: 22px;
-  font-weight: 600;
-  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 6px 8px;
   cursor: pointer;
-  background-color: burlywood;
-  padding: 4px 15px;
-  border-radius: 30px;
-  transition: all .3s ease;
 }
 
-button:not([disabled]):hover {
-  transform: translateX(4px);
+.inputs {
+  background-color: #f7f7f7;
+  padding: 32px;
 }
 
-button[disabled]:hover {
-  cursor: not-allowed;
+.inputs>*+* {
+  margin-top: 20px;
 }
 
-h1 {
-  margin: 20px;
-  padding: 0;
-}
-
-h2 {
-  font-size: 40px;
-  text-shadow: 1px 1px 1px #7e7e7e;
-  color: rgb(202, 202, 202);
-}
-
-h3 {
-  margin: 20px;
-  font-size: 30px;
-  font-weight: normal;
-}
-
-.info p {
-  margin-bottom: 20px;
-}
-
-.control {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.balance {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background-color: #f7f7f7;
+  padding: 24px 32px;
+  font-weight: bold;
+  font-size: 32px;
+  min-width: 180px;
+  text-align: center;
 }
