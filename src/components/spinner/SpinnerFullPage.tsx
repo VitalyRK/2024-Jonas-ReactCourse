@@ -1,3 +1,4 @@
+import Spinner from './Spinner';
 import styles from './index.module.css';
 
 const SpinnerFullPage = () => {
@@ -6,6 +7,6 @@ const SpinnerFullPage = () => {
       <Spinner />
     </div>
   );
-}
+};
 
 export default SpinnerFullPage;

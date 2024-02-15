@@ -7,16 +7,20 @@ import { AuthProvider } from './context/FakeAuthContext';
 import router from './router/Router';
 
 import './index.css';
+import { Suspense } from 'react';
+import SpinnerFullPage from './components/spinner/SpinnerFullPage';
 
 polyfillCountryFlagEmojis();
 
 function App() {
   return (
-    <CitiesProvider>
-      <AuthProvider>
-        <RouterProvider router={router} />;
-      </AuthProvider>
-    </CitiesProvider>
+    <AuthProvider>
+      <CitiesProvider>
+        <Suspense fallback={<SpinnerFullPage />}>
+          <RouterProvider router={router} />;
+        </Suspense>
+      </CitiesProvider>
+    </AuthProvider>
   );
 }
 
